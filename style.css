@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-size: 23px;
+  color: white;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  
+}
+
+
+/* Header */
+header {
+  width: 1200px;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  position: absolute;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.logo-name {
+  margin: 0 ;
+  padding:  16px;
+  text-transform: uppercase;
+}
+
+.header-list li {
+  display: inline;
+  margin-left: 60px ;
+}
+
+.header-list a {
+  color: white;
+  text-decoration: none;
+}
+
+#search-icon {
+  position: relative;
+  top: 10px;
+}
+
+.signIn-button {
+  display: inline-block;
+  padding: 10px 23px ;
+  background: none;
+  color: white;
+  font-family: 'Roboto' sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  border: 2px solid #cd6326;
+  border-radius: 5px;
+  
+}
+
+
+/* Survival */
+.survival {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background: url(/assets/img/hero.svg) no-repeat center top / cover;
+}
