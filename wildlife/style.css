@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-size: 23px;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+
+/* Header */
+header {
+  max-width: 1200px;
+  margin: 0 auto;
+  top: -4px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  position: absolute;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.logo-name {
+  margin: 0 ;
+  padding:  16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+
+.header-list li {
+  display: inline;
+  margin-left: 55px ;
+}
+
+.header-list li a {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 60px;
+  color: white;
+  text-decoration: none;
+}
+
+#search-icon {
+  position: relative;
+  top: 10px;
+}
+
+.signIn-button {
+  display: inline-block;
+  padding: 10px 23px ;
+  background: none;
+  color: white;
+  font-family: 'Roboto' sans-serif;
+  font-size: 23px;
+  font-weight: 200;
+  border: 2px solid #cd6326;
+  border-radius: 5px;
+  
+}
+
+
+/* Survival */
+.survival {
+  position: relative;
+  width: 100%;
+  height: 780px;
+  margin: 0 auto;
+  background: url(/assets/img/hero.svg) no-repeat center top / cover;
+}
+
+.survival .main-text {
+  position: absolute;
+  width: 274px;
+  font-family: 'Open Sans' sans-serif;
+  top: 160px;
+}
+
+.main-text .title-survival {
+  margin-bottom: 51px;
+  font-style: normal;
+  color: #cd6326;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 72px;
+  letter-spacing: 2px;
+}
+
+.main-text .cite{
+  margin-bottom: 49px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.survival .donate-button {
+  padding: 16px 42px;
+  display: inline-block;
+  background-color: #cd6326;
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 27px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  
+}
