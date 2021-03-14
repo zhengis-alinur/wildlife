@@ -58,7 +58,7 @@ header .container {
 
 li {
   display: inline;
-  margin-left: 57px ;
+  margin-left: 53px ;
 }
 
 a {
@@ -80,15 +80,26 @@ a:active {
   color: #8F5613;
 }
 
-#search-icon {
+#search {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
   position: relative;
-  bottom: -7px;
-  right: -2px;
-  opacity: 1;
+  bottom: -10px;
+  background-image: url(./img/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opasity .18s linear;
 }
 
-#search-icon:hover {
-  opacity: .5;
+#search:hover {
+  opacity: 0.5;
+}
+
+.search-link {  
+  display: inline-block;
+  width: 40px;
+  height: 40px;
 }
 
 .signIn-button {
@@ -116,6 +127,13 @@ a:active {
   outline: none;
   background-color: #8F5613;
 }
+
+.signIn-button:focus {
+  outline: none;
+  order: 2px solid #cd6326;
+  border-radius: 5px;
+}
+
 
 
 
@@ -154,9 +172,9 @@ a:active {
 }
 
 .orange-button {
-  padding: 16px 42px;
   display: inline-block;
   background-color: #cd6326;
+  padding: 16px 44px;
   color: white;
   font-family: Roboto;
   font-style: normal;
@@ -167,7 +185,7 @@ a:active {
   border: none;
   border-radius: 5px;
   outline: none;
-  transition: background-color .05s linear;
+  transition: background-color .18s linear;
 }
 
 .orange-button:hover {
@@ -278,6 +296,7 @@ a:active {
   border: 0;
   outline: 0;
   background: url(img/slider-button/slider-button-left-dark.svg) no-repeat center;
+  transition: all .18s linear;
 }
  .slider-button:hover {
   border: 0;
@@ -338,6 +357,8 @@ a:active {
   align-items: center;
   height: 65px;
   margin-top: 59px;
+  position: relative;
+  right: -2px;
   font-family: Roboto;
 }
 
@@ -345,6 +366,7 @@ a:active {
   box-sizing: border-box;
   width: 540px;
   height: 60px;
+  padding-top: 3px;
   padding-left: 15px;
   font-style: normal;
   font-weight: normal;
@@ -368,35 +390,11 @@ a:active {
 }
 
 
-.send-email .send {
-  height: 60px;
-  padding: 0 35px;
-  font-family: Roboto;
-  color: #F7F7F7;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 23px;
-  text-align: center;
-  line-height: 27px;
-  border: none;
-  border-radius: 5px;
-  outline: none;
+.send-email #send {
+  padding: 17px 35px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  background-color: #cd6326;
-  transition: background-color .05s linear;
 }
-
-.send:hover {
-  outline: none;
-  background-color: #E39128;
-}
-
-.send:active {
-  outline: none;
-  background-color: #8F5613;
-}
-
 /* footer */
 footer {
   width: 100%;
@@ -426,11 +424,36 @@ footer .container {
 }
 
 .social li {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
   margin-left: 20px;
-  transition: all .5s linear;
+  top: -8px;
+  transition: all .18s linear;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.social a:hover {
-  opacity: .5;
+.social li:hover {
+  opacity: 0.5;
 }
 
+.fb-logo-link {
+  background-image: url(./img/social/fb-logo.svg);
+}
+.insta-logo-link {
+  background-image: url(./img/social/insta-logo.svg);
+}
+.pinterest-logo-link {
+  background-image: url(./img/social/pinterest-logo.svg);
+}
+.yt-logo-link {
+  background-image: url(./img/social/yt-logo.svg);
+}
+
+.social li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
