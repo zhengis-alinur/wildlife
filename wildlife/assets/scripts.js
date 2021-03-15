@@ -1,26 +1,32 @@
-let leftButton = document.getElementById("left");
-let rightButton = document.getElementById("right");
+leftButton = document.getElementById("left");
+rightButton = document.getElementById("right");
 
-let deer = document.getElementById("first");
-let squirrel = document.getElementById("second");
-let bird = document.getElementById("third");
-let item4 = document.getElementById("fourth");
+deer = document.getElementById("first");
+squirrel = document.getElementById("second");
+bird = document.getElementById("third");
+item4 = document.getElementById("fourth");
 
-let articlesArr = [deer, squirrel, bird, item4];
-console.log('dsfasd');
-
+articlesArr = [deer, squirrel, bird, item4]; 
+itemCount = articlesArr.length;
 function slideRight() {
-  console.log("right");
-  for(i = 0; i < 3; i++) {
-    articlesArr[i].style.order = i+1;
+  let temp = articlesArr[0];
+  console.log(articlesArr);
+  articlesArr.splice(0, 1);
+  articlesArr.push(temp);
+  for(i = 0; i < itemCount; i++) {
+    articlesArr[i].style.order = i;
+    articlesArr[i].style.display = "flex";
   }
-  articlesArr[3].style.order = 1;
+  articlesArr[itemCount-1].style.display = "none";
 }
 
 function slideLeft() {
-  console.log("left");
-  for(i = 0; i < 3; i++) {
-    articlesArr[i].style.order = i+1;
+  let temp = articlesArr[itemCount - 1];
+  articlesArr.splice(itemCount - 1, 1);
+  articlesArr.unshift(temp);
+  for(i = 0; i < itemCount; i++) {
+    articlesArr[i].style.order = i;
+    articlesArr[i].style.display = "flex";
   }
-  articlesArr[3].style.order = 1;
+  articlesArr[itemCount-1].style.display = "none";
 }

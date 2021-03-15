@@ -112,6 +112,7 @@ a:active {
   font-weight: 200;
   border: 2px solid #cd6326;
   border-radius: 5px;
+  cursor: pointer;
   transition: background-color .18s linear;
 }
 
@@ -185,6 +186,7 @@ a:active {
   border: none;
   border-radius: 5px;
   outline: none;
+  cursor: pointer;
   transition: background-color .18s linear;
 }
 
@@ -263,6 +265,7 @@ a:active {
 }
 
 .article:hover {
+  transform: scale(1.05);
   box-shadow: 0 0 30px #cd6326;
 }
 
@@ -282,6 +285,7 @@ a:active {
 }
 
 .article#fourth {
+  display: none;
   order: 4;
   background: url("img/background/item4.jpg") no-repeat center / cover;
 }
