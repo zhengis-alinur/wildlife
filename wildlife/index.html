@@ -48,27 +48,38 @@
     <div class="container">
       <p class="title">Latest articles</p>
       <p class="subtitle">Breaking news from the wild</p>
-      <div class="slider">
-        <button class="slider-button"></button>
-        <a id="first" class="article" href="##">
-          <div class="description">
-            <p class="article-title">Deer</p>
-            <p class="article-subtitle">Naturalist investigation</p>
+      <div class="slider-container">
+        <button id="left" class="slider-button" onclick= "slideLeft()"></button>
+        <div class="slider">
+          <div class="articles-container">
+            <a id="first" class="article" href="##">
+              <div class="description">
+                <p class="article-title">Deer</p>
+                <p class="article-subtitle">Naturalist investigation</p>
+              </div>
+            </a>
+            <a id="second" class="article" href="##">
+              <div class="description">
+                <p class="article-title">Squirrel</p>
+                <p class="article-subtitle">Kamikaze squirrels</p>
+              </div>
+            </a>
+            <a id="third" class="article" href="##">
+              <div class="description">
+                <p class="article-title">Bird</p>
+                <p class="article-subtitle">Birds Fight club</p>
+              </div>
+            </a>
+            
+            <a id="fourth" class="article" href="##">
+              <div class="description">
+                <p class="article-title">Bird</p>
+                <p class="article-subtitle">Birds Fight club</p>
+              </div>
+            </a>
           </div>
-        </a>
-        <a id="second" class="article" href="##">
-          <div class="description">
-            <p class="article-title">Squirrel</p>
-            <p class="article-subtitle">Kamikaze squirrels</p>
-          </div>
-        </a>
-        <a id="third" class="article" href="##">
-          <div class="description">
-            <p class="article-title">Bird</p>
-            <p class="article-subtitle">Birds Fight club</p>
-          </div>
-        </a>
-        <button id="right" class="slider-button"></button>
+        </div>
+        <button id="right" class="slider-button" onclick= "slideRight()"></button>
       </div>
     </div>
   </section>
@@ -100,5 +111,6 @@
       </ul>
     </div>
   </footer>
+  <script src="assets/scripts.js"></script>
 </body>
 </html>
