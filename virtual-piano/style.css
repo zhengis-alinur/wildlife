@@ -121,6 +121,10 @@ body {
 	transform-origin: center top;
 }
 
+.piano-key.sharp:hover {
+  background-color: #3a444d;
+}
+
 .piano-key.piano-key-active,
 .piano-key.sharp.piano-key-active {
 	transform: scale(0.96);
@@ -131,7 +135,6 @@ body {
 	border-radius: 0;
 	pointer-events: none;
 }
-
 .piano-key::before,
 .piano-key::after {
 	content: attr(data-note);
@@ -146,10 +149,13 @@ body {
 	left: 20px;
 	transition: 0.3s;
 }
-
 .piano-key::after {
 	display: none;
 	content: attr(data-letter);
+}
+.piano-key:hover::before,
+.piano-key:hover::after {
+	color: #d7dfe6;
 }
 
 .sharp:active {
@@ -173,6 +179,11 @@ body {
 
 .piano-key-remove-mouse:active::before {
 	color: #a2abb3;
+}
+
+.piano-key-active:hover::after,
+.piano-key-active:hover::before {
+	color: #00b4a4;
 }
 
 .piano-key-active-pseudo:hover::after,
