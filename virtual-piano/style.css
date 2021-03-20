@@ -131,6 +131,7 @@ body {
 	border-radius: 0;
 	pointer-events: none;
 }
+
 .piano-key::before,
 .piano-key::after {
 	content: attr(data-note);
@@ -145,13 +146,10 @@ body {
 	left: 20px;
 	transition: 0.3s;
 }
+
 .piano-key::after {
 	display: none;
 	content: attr(data-letter);
-}
-.piano-key:hover::before,
-.piano-key:hover::after {
-	color: #d7dfe6;
 }
 
 .sharp:active {

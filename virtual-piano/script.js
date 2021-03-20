@@ -5,6 +5,8 @@ let lastEvent = undefined;
 let lastKeyEvent = 'keyup';
 let pressed = new Set();
 
+
+//Audio
 document.addEventListener("mouseup", (event) => {
   lastEvent = "mouseup";
   const key = event.target;
@@ -17,9 +19,10 @@ document.addEventListener("mouseout", (event) => {
 });
 
 piano.addEventListener("mousedown", (event) => {
-  if(event.target.classList.contains('piano-key')) {
+  if(event.target.classList.contains('piano-key') && ((event.offsetY < event.target.offsetHeight)&&(event.offsetY > event.target.offsetHeight - event.target.clientHeight))) {
     const key = event.target;
     const note = key.dataset.note;
+    console.log(key.classList);
     key.classList.add("piano-key-active");
     playAudio(note);
     currentKey = key;
@@ -28,7 +31,7 @@ piano.addEventListener("mousedown", (event) => {
 });
 
 piano.addEventListener("mouseover", (event) => {
-  if(event.target.classList.contains('piano-key') && lastEvent == 'mousedown') {
+  if(event.target.classList.contains('piano-key') && lastEvent == 'mousedown' &&((event.offsetY < event.target.offsetHeight)&&(event.offsetY > event.target.offsetHeight - event.target.clientHeight))) {
     const key = event.target;
     key.classList.add("piano-key-active");
     const note = key.dataset.note;
@@ -37,16 +40,8 @@ piano.addEventListener("mouseover", (event) => {
   }
 });
 
-
-function playAudio(note) {
-  const noteSound = new Audio();
-  const src = 'assets/audio/' + note + '.mp3';
-  noteSound.src = src;
-  noteSound.currentTime = 0;
-  noteSound.play();
-}
-const keyUpHandler = function(code) {
-  switch(code) {
+const keyUpHandler = function(event) {
+  switch(event.code) {
     case "KeyD": {
       keys[0].classList.remove("piano-key-active");
       break;
@@ -96,85 +91,101 @@ const keyUpHandler = function(code) {
       break;
     }
   }
+  lastKeyEvent = 'keyUp';
 };
-const keyDownHandler = function(code) {
-  switch(code) {
-    case "KeyD": {
-      keys[0].classList.add("piano-key-active");
-      playAudio('c');
-      break;
-    }
-    case "KeyF": {
-      keys[1].classList.add("piano-key-active");
-      playAudio('d');
-      break;
-    }
-    case "KeyG": {
-      keys[2].classList.add("piano-key-active");
-      playAudio('e');
-      break;
-    }
-    case "KeyH": {
-      keys[3].classList.add("piano-key-active");
-      playAudio('f');
-      break;
-    }
-    case "KeyJ": {
-      keys[4].classList.add("piano-key-active");
-      playAudio('g');
-      break;
-    }
-    case "KeyK": {
-      keys[5].classList.add("piano-key-active");
-      playAudio('a');
-      break;
-    }
-    case "KeyL": {
-      keys[6].classList.add("piano-key-active");
-      playAudio(event, 'b');
-      break;
-    }
-    case "KeyR": {
-      keys[7].classList.add("piano-key-active");
-      playAudio('c♯');
-      break;
-    }
-    case "KeyT": {
-      keys[8].classList.add("piano-key-active");
-      playAudio('d♯');
-      break;
-    }
-    case "KeyU": {
-      keys[9].classList.add("piano-key-active");
-      playAudio('f♯');
-      break;
-    }
-    case "KeyI": {
-      keys[10].classList.add("piano-key-active");
-      playAudio('g♯');
-      break;
-    }
-    case "KeyO": {
-      keys[11].classList.add("piano-key-active");
-      playAudio('a♯');
-      break;
+const keyDownHandler = function(event) {
+  if(lastKeyEvent == 'keyUp') {
+    switch(event.code) {
+      case "KeyD": {
+        keys[0].classList.add("piano-key-active");
+        playAudio('c');
+        break;
+      }
+      case "KeyF": {
+        keys[1].classList.add("piano-key-active");
+        playAudio('d');
+        break;
+      }
+      case "KeyG": {
+        keys[2].classList.add("piano-key-active");
+        playAudio('e');
+        break;
+      }
+      case "KeyH": {
+        keys[3].classList.add("piano-key-active");
+        playAudio('f');
+        break;
+      }
+      case "KeyJ": {
+        keys[4].classList.add("piano-key-active");
+        playAudio('g');
+        break;
+      }
+      case "KeyK": {
+        keys[5].classList.add("piano-key-active");
+        playAudio('a');
+        break;
+      }
+      case "KeyL": {
+        keys[6].classList.add("piano-key-active");
+        playAudio('b');
+        break;
+      }
+      case "KeyR": {
+        keys[7].classList.add("piano-key-active");
+        playAudio('c♯');
+        break;
+      }
+      case "KeyT": {
+        keys[8].classList.add("piano-key-active");
+        playAudio('d♯');
+        break;
+      }
+      case "KeyU": {
+        keys[9].classList.add("piano-key-active");
+        playAudio('f♯');
+        break;
+      }
+      case "KeyI": {
+        keys[10].classList.add("piano-key-active");
+        playAudio('g♯');
+        break;
+      }
+      case "KeyO": {
+        keys[11].classList.add("piano-key-active");
+        playAudio('a♯');
+        break;
+      }
     }
   }
+  lastKeyEvent = 'keyDown';
 };
-document.addEventListener('keydown', (event) => {
-  pressed.add(event.code);
-  console.log("add" + event.code);
-  pressed.forEach(element => {
-    keyDownHandler(element);
-  });
-});
-document.addEventListener('keyup', (event) => {
-  pressed.delete(event.code);
-  console.log("delete" + event.code);
-  pressed.forEach(element => {
-    keyUpHandler(element);
-  });
-});
+document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keyup', keyUpHandler);
+
+function playAudio(note) {
+  const noteSound = new Audio();
+  const src = 'assets/audio/' + note + '.mp3';
+  noteSound.src = src;
+  noteSound.currentTime = 0;
+  noteSound.play();
+}
 
 
+let activeButton = document.querySelector('.btn-notes');
+let nonActiveButton = document.querySelector('.btn-letters');
+//Letter-Notes switch buttons
+const btnContainer = document.querySelector(".btn-container");
+btnContainer.addEventListener('click', (event) => {
+    if(event.target == nonActiveButton) {
+      event.target.classList.add("btn-active");
+      activeButton.classList.remove("btn-active");
+      for(i = 0; i < keys.length; i++) {
+        keys[i].classList.toggle("letter");
+      }
+      nonActiveButton = activeButton;
+      activeButton = event.target;
+    }
+  }
+);
 
